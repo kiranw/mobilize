@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manufacturing Pipeline | mobilize</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Libre+Baskerville|Nunito|Open+Sans:300i" rel="stylesheet">
+    <link rel="stylesheet" href="css/generic.css">
+</head>
+<body>
+
+<div id="navbar" class="row">
+    <div class="col-md-5" id="brand"><a href="index.html">mobilize</a></div>
+    <div class="col-md-2"><a href="about.html">about</a></div>
+    <div class="col-md-2"><a href="sankey.html"><strong>manufacturing</strong></a></div>
+    <div class="col-md-3"><a href="process.html">prototyping and process</a></div>
+</div>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<div id="sankey_multiple" style="width: 900px; height: 300px;"></div>
+
+<!--#sewing 1625-->
+<!--['Assembly', 'Marketing', 17.95],-->
+
+<script type="text/javascript">
+    google.charts.load("current", {packages:["sankey"]});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'From');
+        data.addColumn('string', 'To');
+        data.addColumn('number', 'Weight');
+        data.addRows([
+            [ 'Spandex, Spacer Mesh', 'Sewing', 4.79 ],
+            [ 'DELA Foam', 'Sewing', 3.46 ],
+            [ 'Velcro', 'Sewing', 0.6 ],
+            [ 'Labor', 'Sewing', 7],
+
+            [ 'Sewing', 'Voxel8 Machine', 8.6],
+
+            [ 'Silicon/Plastics/Rubber', 'Casting', 4.42],
+            [ 'Molds', 'Casting', 0.8],
+            [ 'Labor', 'Casting', 5],
+
+            [ 'Velcro', 'Assembly', 0.6 ],
+            [ 'Casting', 'Assembly', 9.22],
+            [ 'Voxel8 Machine', 'Assembly', 9.6],
+            [ 'Sewing', 'Assembly', 4.75],
+            [ 'Labor', 'Assembly', 2],
+
+            [ 'Labor', 'Marketing', 2],
+
+            ['Assembly', 'Distribution', 26.17],
+            [ 'Labor', 'Distribution', 4],
+
+            ['Marketing', 'Final Cost', 2],
+            ['Distribution', 'Final Cost', 30.17],
+        ]);
+
+//        var colors = ['#a6cee3', '#b2df8a', '#fb9a99', '#fdbf6f',
+//            '#cab2d6', '#ffff99', '#1f78b4', '#33a02c'];
+        var colors = ['#192B38', '#53C296', '#22424B', '#319589','#2E5458', '#344D6C','#4E7367', '#372650','#7FA68C'];
+
+
+        // Set chart options
+        var options = {
+            width: 1300,
+            height: 650,
+            sankey: {
+                node: {
+                    colors: ['#727272'],
+                    label: { fontName: 'Helvetica' },
+                    width: 40
+                },
+                link: {
+                    colorMode: 'gradient',
+                    colors: colors,
+                    fillOpacity: 1,
+//                    color: { stroke: 'white', strokeWidth: 2 }
+                }
+            }
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_multiple'));
+        chart.draw(data, options);
+    }
+</script>
+</body>
+</html>
