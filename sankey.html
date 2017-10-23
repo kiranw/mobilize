@@ -16,7 +16,9 @@
     <div class="col-md-3"><a href="process.html">prototyping and process</a></div>
 </div>
 
-<h4>Costs amortized over 1000 units for US-sourced materials and production, and a US consumer market</h4>
+<h4>Costs amortized over 1000 units for US-sourced materials and production, intended for retail in the US consumer market</h4>
+<h4>Cost to Produce: $33.17</h4>
+<h4>Market Cost: $50</h4>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
@@ -34,6 +36,7 @@
         data.addColumn('string', 'To');
         data.addColumn('number', 'Weight');
         data.addRows([
+
             [ 'Spandex, Spacer Mesh', 'Sewing', 4.79 ],
             [ 'DELA Foam', 'Sewing', 3.46 ],
             [ 'Velcro', 'Sewing', 0.6 ],
@@ -45,19 +48,24 @@
             [ 'Molds', 'Casting', 0.8],
             [ 'Labor', 'Casting', 5],
 
+            ['Margin', 'Final Cost', 21.83],
+
             [ 'Velcro', 'Assembly', 0.6 ],
-            [ 'Casting', 'Assembly', 9.22],
+            [ 'Casting', 'Assembly', 10.22],
             [ 'Voxel8 Machine', 'Assembly', 9.6],
             [ 'Sewing', 'Assembly', 4.75],
             [ 'Labor', 'Assembly', 2],
 
             [ 'Labor', 'Marketing', 2],
 
-            ['Assembly', 'Distribution', 26.17],
+            ['Assembly', 'Distribution', 27.17],
             [ 'Labor', 'Distribution', 4],
 
-            ['Marketing', 'Final Cost', 2],
-            ['Distribution', 'Final Cost', 30.17],
+            ['Marketing', 'Cost to Produce', 2],
+            ['Distribution', 'Cost to Produce', 31.17],
+
+            ['Cost to Produce', 'Final Cost', 33.17],
+
         ]);
 
 //        var colors = ['#a6cee3', '#b2df8a', '#fb9a99', '#fdbf6f',
@@ -68,7 +76,7 @@
         // Set chart options
         var options = {
             width: 1300,
-            height: 650,
+            height: 580,
             sankey: {
                 node: {
                     colors: ['#727272'],

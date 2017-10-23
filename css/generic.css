@@ -69,3 +69,9 @@ a {
     margin: 80px 2%;
     width: 80%;
 }
+
+.quote {
+    margin-left: 20px;
+    color: gray;
+    font-style:italic;
+}
