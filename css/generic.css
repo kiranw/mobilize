@@ -46,7 +46,9 @@ a {
 .image {
     width: 80%;
     height: auto;
-    margin:20px 0px;
+    text-align: center;
+    margin:0px auto;
+    display: block;
 }
 
 #myVideo {
@@ -74,4 +76,9 @@ a {
     margin-left: 20px;
     color: gray;
     font-style:italic;
+}
+.caption {
+    font-size: 1.7em;
+    margin-left: 100px;
+    width: 50%;
 }
